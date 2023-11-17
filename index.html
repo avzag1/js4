@@ -9,21 +9,70 @@
   </head>
   <body>
     <h1>Для задания 1</h1>
-    <div class="task1"> 
-      <a id="link1" data-type="text/html" hreflang="RU-ru" rel="nofollow" class="link link-active"
-      target="_blank" title="Откроется в новой вкладке" href="/homework4-1.html"> Homework 4.1</a>
+    <div class="task1">
+      <a
+        id="link1"
+        data-type="text/html"
+        hreflang="RU-ru"
+        rel="nofollow"
+        class="link link-active"
+        target="_blank"
+        title="Откроется в новой вкладке"
+        href="/homework4-1.html"
+      >
+        //Homework 4.1</a
+      >
     </div>
     <div class="task1" id="task1-link"></div>
     <script>
-      // 1. Напишите функцию JavaScript, чтобы получить значения атрибутов class, href, hreflang, 
+      // 1. Напишите функцию JavaScript, чтобы получить значения атрибутов class, href, hreflang,
       // rel, target, title и data-type указанной ссылки. Полученный результат выведите в консоль.
       // 2. Напишите функцию удаления ссылки #link1 из DOM.
       // *3. Создайте точно такую же ссылку с помощью JavaScript и вставьте в #task1-link.
       // Решение:
+      //1
+      window.onload = function () {
+        function showAttribut(id, ...attributes) {
+          let link = document.querySelector("#id"); //Почему не определяется переменная link?
+          for (let item of attributes) {
+            console.log(link.getAttribute(item));
+          }
+        }
+        /* showAttribut(
+          link1,
+          "class",
+          "href",
+          "hreflang",
+          "rel",
+          "target",
+          "title",
+          "data-type"
+        ); */
 
+        //2
+        function deleteByID (id) {
+        let link = document.querySelector("#id");//Почему не определяется переменная link?
+        link.remove();
+      }
+      //deleteByID(link1);
+
+        //3
+        task1 = document.querySelector("#task1-link");
+        let linkTwo = document.createElement("a");
+        linkTwo.innerHTML = "Homework 4.1";
+        task1.insertAdjacentHTML("afterbegin", linkTwo); //Почему не вставляет на html-страницу?
+        linkTwo.classList.add("link", "link-active");
+        linkTwo.setAttribute("id", "link1");
+        linkTwo.setAttribute("data-type", "text/html");
+        linkTwo.setAttribute("hreflang", "RU-ru");
+        linkTwo.setAttribute("rel", "nofollow");
+        linkTwo.setAttribute("target", "_blank");
+        linkTwo.setAttribute("title", "Откроется в новой вкладке");
+        linkTwo.setAttribute("href", "/homework4-1.html");
+        console.log(linkTwo);
+      };
 
     </script>
-
 
     <h1>Для задания 2</h1>
     <div class="task2">
@@ -46,30 +95,25 @@
       // 2.2. <ul>
       // 2.3. третий <li> первого списка (TypeScript)
       // 2.4. <a> (PHP)
-      // *2.5. второй <li> второго списка (Yellow) через третий <li> первого списка (TypeScript) 
+      // *2.5. второй <li> второго списка (Yellow) через третий <li> первого списка (TypeScript)
 
       // Решение:
-
-
     </script>
 
-
     <h1>Для задания 3</h1>
-    <div class="task3" id="calendar">
-
-    </div>
+    <div class="task3" id="calendar"></div>
     <style>
       .task3 table {
         border-collapse: collapse;
       }
-  
+
       .task3 td,
       .task3 th {
         border: 1px solid black;
         padding: 3px;
         text-align: center;
       }
-  
+
       .task3 th {
         background-color: orange;
         font-weight: bold;
@@ -84,14 +128,15 @@
       // Напишите функцию newCalendar(elementLink, year, month).
 
       // Вызов функции newCalendar() создаст календарь для заданного месяца month в году year и вставить его внутрь elementLink.
-      // Календарь должен быть в виде таблицы (тег table), где неделя – это <tr>, а день – это <td>. 
+      // Календарь должен быть в виде таблицы (тег table), где неделя – это <tr>, а день – это <td>.
       // У таблицы должен быть заголовок с названиями дней недели, каждый день – <th>.
       // Первый день недели в календаре - понедельник.
       // *Если выбран текущий месяц, подсветите красным текущий день на календаре.
       // Пример вызова функции: newCalendar(elementLink, 2022, 1) сгенерирует календарь calendar.png
 
       // Подсказки
-      let year = 2022, month = 1;
+      let year = 2022,
+        month = 1;
       let date = new Date(year, month - 1); // Создание объекта Date для месяца month в году year (номерация начинается с 0)
       let day = date.getDay(); // Получение номера дня недели
       console.log(day);
@@ -105,8 +150,6 @@
       console.log(day);
 
       // Решение:
-
-
     </script>
   </body>
 </html>

@@ -148,7 +148,7 @@
         font-weight: bold;
       }
 
-      task3 td.red {
+      .task3 td.red {
         background-color: red;
       }
     </style>
@@ -186,19 +186,23 @@
       // Решение:
       function newCalendar(elementLink, year, month) {
         let date = new Date(year, month - 1); // Создание объекта Date для месяца month в году year (номерация начинается с 0)
+        let currentDate = new Date();
         let table =
           "<table><tr><th>пн</th><th>вт</th><th>ср</th><th>чт</th><th>пт</th><th>сб</th><th>вс</th></tr><tr>"; //Создал шапку с днями недели
         for (let i = 0; i < getDay(date); i++) {
           table += "<td></td>"; // пробелы первого ряда
         }
         while (date.getMonth() == month - 1) {
-          table += "<td>" + date.getDate() + "</td>"; // Заполнение ячеек с датами
+          //table += "<td>" + date.getDate() + "</td>"; // Заполнение ячеек с датами
           if (
-            (date.getFullYear() == year) &
-            (date.getMonth == month) &
-            (date.getDate() == new Date())
+            (currentDate.getFullYear() === year) &&
+            (currentDate.getMonth() === month - 1) &&
+            (currentDate.getDate() === date.getDate())
           ) {
-            td.className = "red"; //Почему к ячейке td не присваивается класс red?
+            table += "<td.class = 'red'>" + date.getDate() + "</td>";//Почему сегодняшнее число отображается за рамками календаря?
+          }
+          else {
+             table += "<td>" + date.getDate() + "</td>";
           }
           if (getDay(date) % 7 == 6) {
             // вс - последний день. Перевод строки.

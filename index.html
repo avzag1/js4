@@ -153,7 +153,6 @@
       }
     </style>
     <table id="table"></table>
-    ;
     <script>
       // Создайте календарь в виде таблицы с помощью JavaScript
       // Напишите функцию newCalendar(elementLink, year, month).
@@ -187,6 +186,9 @@
       function newCalendar(elementLink, year, month) {
         let date = new Date(year, month - 1); // Создание объекта Date для месяца month в году year (номерация начинается с 0)
         let currentDate = new Date();
+        console.log(date)
+        console.log(currentDate)
+        console.log(date.getMonth())
         let table =
           "<table><tr><th>пн</th><th>вт</th><th>ср</th><th>чт</th><th>пт</th><th>сб</th><th>вс</th></tr><tr>"; //Создал шапку с днями недели
         for (let i = 0; i < getDay(date); i++) {
@@ -199,7 +201,7 @@
             (currentDate.getMonth() === month - 1) &&
             (currentDate.getDate() === date.getDate())
           ) {
-            table += "<td.class = 'red'>" + date.getDate() + "</td>";//Почему сегодняшнее число отображается за рамками календаря?
+            table += "<td class = 'red'>" + date.getDate() + "</td>";
           }
           else {
              table += "<td>" + date.getDate() + "</td>";
